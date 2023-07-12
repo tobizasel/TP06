@@ -1,0 +1,16 @@
+<h1>Candidatos de UNION</h1>
+
+@foreach (Candidato c in ViewBag.Candidatos)
+{
+    if (c.IdPartido == 3)
+    {
+        <div class="carta">
+            <h3 class="carta__titulo">@c.Nombre @c.Apellido</h3>
+
+            <div class="carta__cuerpo">
+                <img src=@c.Foto alt=@c.Apellido>
+                <p>@c.Postulacion</p>
+            </div>
+        </div>
+    }
+}
