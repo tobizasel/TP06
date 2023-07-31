@@ -1,4 +1,7 @@
 <h1>Candidatos de Juntos</h1>
+
+<a href='@Url.Action("AgregarForm", new {partido="Juntos"})'><button> Agregar Candidato</button></a>
+
 <div class="candidatos">
 @foreach (Candidato c in ViewBag.Candidatos)
 {
@@ -11,6 +14,10 @@
                 <img src=@c.Foto alt=@c.Apellido>
                 <p>@c.Postulacion</p>
             </div>
+
+            <button><a href='@Url.Action("detalleCandidato", new {IdCandidato = c.IdCandidato})'>Ver candidato</a></button>
+            <a href='@Url.Action("BorrarCandidato", new {IdCandidato = c.IdCandidato})'><i class="fa-solid fa-x candidato__borrar"></i></a>
+
         </div>
     }
 }

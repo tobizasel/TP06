@@ -38,9 +38,9 @@ class BD
     }
 
     public static void agregarCandidato(Candidato C){
-        string query = "INSERT INTO Candidato  (IdPartido, Apellido, Nombre, Foto, Postulacion) VALUES (@ZIdPartido, @ZApellido, @ZNombre, @ZFoto, @ZPostulacion)";
+        string query = "INSERT INTO Candidato (IdPartido, Apellido, Nombre, FechaNacimiento ,Foto, Postulacion) VALUES (@ZIdPartido, @ZApellido, @ZNombre, @ZFechaNacimiento ,@ZFoto, @ZPostulacion)";
          using (SqlConnection BD = new SqlConnection(_connectionString)){
-            BD.Execute(query, new {ZIdPartido = C.IdPartido,ZApellido = C.Apellido, ZNombre = C.Nombre, ZFoto = C.Foto, ZPostulacion = C.Postulacion});
+            BD.Execute(query, new {ZIdPartido = C.IdPartido,ZApellido = C.Apellido, ZNombre = C.Nombre,ZFechaNacimiento = C.FechaNacimiento ,ZFoto = C.Foto, ZPostulacion = C.Postulacion});
         }
     }
 

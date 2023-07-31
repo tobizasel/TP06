@@ -1,8 +1,9 @@
 public class Candidato
 {
-    public Candidato(string Apellido, string Nombre, string Foto, string Postulacion, int IdPartido){
+    public Candidato(string Apellido, string Nombre, DateTime FechaNacimiento ,string Foto, string Postulacion, int IdPartido){
         this.Apellido = Apellido;
         this.Nombre = Nombre;
+        this.FechaNacimiento = FechaNacimiento;
         this.Foto = Foto;
         this.Postulacion = Postulacion;
         this.IdPartido = IdPartido;

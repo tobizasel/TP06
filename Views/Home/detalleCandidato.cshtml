@@ -1,0 +1,15 @@
+@foreach (Candidato c in ViewBag.candidatos)
+{
+    if (c.IdCandidato == ViewBag.id)
+    {
+        <div class="candidato">
+            <h1 class="candidato__titulo">@c.Nombre @c.Apellido</h1>
+
+            <h3>@c.FechaNacimiento</h3>
+
+            <img src=@c.Foto alt=@c.Apellido>
+
+            <p>@c.Postulacion</p>
+        </div>
+    }
+}

@@ -13,6 +13,7 @@ public class HomeController : Controller
 
     public IActionResult AgregarForm(string partido)
     {
+
         if (partido == "Union")
         {
             ViewBag.partido = 3;
@@ -23,7 +24,8 @@ public class HomeController : Controller
     }
 
    public IActionResult agregarCandidatos(string nombre, string apellido, DateTime fecha, string foto, string postulacion, int IdPartido){
-        BD.agregarCandidato(new Candidato(apellido,nombre ,foto, postulacion, IdPartido));
+        Console.WriteLine(foto);
+        BD.agregarCandidato(new Candidato(apellido,nombre, fecha ,foto, postulacion, IdPartido));
         return RedirectToAction("Index");
     }
     public IActionResult borrarCandidato(int IdCandidato){
@@ -43,6 +45,12 @@ public class HomeController : Controller
         List<Partido> partidos = BD.verInfoPartidos();
         ViewBag.Candidatos = candidatos;
         ViewBag.Partido = partidos;
+        return View();
+    }
+
+    public IActionResult detalleCandidato(int IdCandidato){
+        ViewBag.id = IdCandidato;
+        ViewBag.candidatos = BD.verCandidatos();
         return View();
     }
 }
