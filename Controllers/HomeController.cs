@@ -11,8 +11,14 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult AgregarForm()
+    public IActionResult AgregarForm(string partido)
     {
+        if (partido == "Union")
+        {
+            ViewBag.partido = 3;
+        } else {
+            ViewBag.partido = 2;
+        }
         return View();
     }
 
@@ -20,8 +26,8 @@ public class HomeController : Controller
         BD.agregarCandidato(new Candidato(apellido,nombre ,foto, postulacion, IdPartido));
         return RedirectToAction("Index");
     }
-    public IActionResult borrarCandidato(){
-
+    public IActionResult borrarCandidato(int IdCandidato){
+        BD.borrarCandidato(IdCandidato);
         return RedirectToAction("Index");
     }
 

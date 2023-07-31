@@ -1,16 +1,21 @@
 <h1>Candidatos de UNION</h1>
 
-@foreach (Candidato c in ViewBag.Candidatos)
-{
-    if (c.IdPartido == 3)
-    {
-        <div class="carta">
-            <h3 class="carta__titulo">@c.Nombre @c.Apellido</h3>
+<a href='@Url.Action("AgregarForm", new {partido="Union"})'><button> Agregar Candidato</button></a>
 
-            <div class="carta__cuerpo">
-                <img src=@c.Foto alt=@c.Apellido>
-                <p>@c.Postulacion</p>
+<div class="candidatos">
+    @foreach (Candidato c in ViewBag.Candidatos)
+    {
+        if (c.IdPartido == 3)
+        {
+            <div class="carta">
+                <h3 class="carta__titulo">@c.Nombre @c.Apellido</h3>
+
+                <div class="carta__cuerpo">
+                    <img src=@c.Foto alt=@c.Apellido>
+                    <p>@c.Postulacion</p>
+                </div>
+                <a href='@Url.Action("BorrarCandidato", new {IdCandidato = c.IdCandidato})'><i class="fa-solid fa-x candidato__borrar"></i></a>
             </div>
-        </div>
+        }
     }
-}
+</div>

@@ -2,21 +2,29 @@
     ViewData["Title"] = "Index";
 }
 
-<a href='@Url.Action("AgregarForm")'><button> Agregar Candidato</button></a>
 <a href='@Url.Action("borrarCandidato")'><button> Eliminar Candidato</button></a>
 
+
+<div class="partidos">
 @foreach (Partido item in ViewBag.Partidos)
 {
-    <a href='@Url.Action(@item.Nombre)'>
-        <h2>@item.Nombre</h2>
+        <div class="partido">
+            
+                <h2 class="partido__titulo">@item.Nombre</h2>
 
-        <img src=@item.Logo alt=@item.Nombre/>
+                <img class="partido__img" src=@item.Logo alt=@item.Nombre/>
 
-        <div>
-            <h5>Cantidad de diputados: @item.CantidadDiputados</h5>
-            <h5>Cantidad de senadores: @item.CantidadSenadores</h5>
+                <div class="partido__cantidades">
+                    <h5 class="partido__diputados">Cantidad de diputados: @item.CantidadDiputados</h5>
+                    <h5 class="partido__senadores">Cantidad de senadores: @item.CantidadSenadores</h5>
+                </div>
+            
+
+            <div class="partido__botones">
+                <boton class="partido__boton"><a href=@item.SitioWeb>Ver sitio web</a></boton>
+                <boton class="partido__boton"><a href='@Url.Action(@item.Nombre)'>Ver detalles</a></boton>
+            </div>
+
         </div>
-        
-        <span><a href=@item.SitioWeb>Ver sitio web</a></span>
-    </a>
 }
+</div>
